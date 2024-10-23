@@ -46,7 +46,7 @@ public class Comment {
     }
 
     public CommentResponse toEntity() {
-        return new CommentResponse(commentId, article.getId(), body, createdAt);
+        return new CommentResponse(commentId, article.getId(), body, createdAt, article.toEntity());
     }
 
     public void update(String body) {

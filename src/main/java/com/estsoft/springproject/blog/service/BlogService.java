@@ -56,7 +56,7 @@ public class BlogService {
 
         List<CommentResponse> comments = blogCommentRepository.findByArticleId(articleId)
                 .stream()
-                .map(comment -> new CommentResponse(comment.getCommentId(), articleId, comment.getBody(), comment.getCreatedAt()))
+                .map(comment -> new CommentResponse(comment.getCommentId(), articleId, comment.getBody(), comment.getCreatedAt(), article.toEntity()))
                 .collect(Collectors.toList());
 
         return new ArticleWithCommentsResponse(
