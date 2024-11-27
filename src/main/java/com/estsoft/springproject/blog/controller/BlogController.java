@@ -41,9 +41,6 @@ public class BlogController {
     @PostMapping("/articles")
     public ResponseEntity<ArticleResponse> writeArticle(@RequestBody AddArticleRequest request) {
         Article article = blogService.saveArticle(request);
-        //log.info("{}, {}", request.getTitle(), request.getContent());
-//        return ResponseEntity.status(HttpStatus.CREATED)
-//                .body(article);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(request.toEntity().toEntity());
     }

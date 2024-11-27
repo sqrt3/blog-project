@@ -55,8 +55,6 @@ public class ExternalApiController {
                 blogCommentService.saveComment(request);
             });
         }
-
-
         return "OK";
     }
 }

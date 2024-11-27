@@ -21,15 +21,15 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.authorizeHttpRequests(
                     custom -> custom.requestMatchers("/login", "/signup", "/user").permitAll()
-                            .requestMatchers("/articles/**").hasRole("ADMIN")
+                            //.requestMatchers("/articles/**").hasRole("ADMIN")
                             // No Prefix
                             //.requestMatchers("/articles/**").hasAuthority("ROLE_USER")
-                            //custom.anyRequest().permitAll()
+                            .anyRequest().permitAll()
                 )
-                .formLogin(custom -> custom.loginPage("/login").defaultSuccessUrl("/articles"))
-                .logout(custom -> custom.logoutSuccessUrl("/login").invalidateHttpSession(true))
+//                .formLogin(custom -> custom.loginPage("/login").defaultSuccessUrl("/articles"))
+//                .logout(custom -> custom.logoutSuccessUrl("/login").invalidateHttpSession(true))
 //                .csrf(AbstractHttpConfigurer::disable)
-                .csrf(custom -> custom.disable())
+//                .csrf(custom -> custom.disable())
                 .build();
     }
 
